@@ -21,3 +21,7 @@ deploy:
   app: aso004fase4
   on:
       branch: main
+
+dist: xenial
+
+os: linux
