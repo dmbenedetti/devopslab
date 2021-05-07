@@ -19,7 +19,7 @@ deploy:
   provider: heroku
   api_key: 0658147b-b507-426e-9861-64d051736897
   edge: true 
-  app: aso004fase4
+  app: devopslab-dmbenedetti
   on:
       branch: main
 
