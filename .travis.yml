@@ -16,12 +16,12 @@ script:
 # Definir o Deploy no Heroku
 deploy:
   strategy: api
-  - provider: heroku
-    api_key: 0658147b-b507-426e-9861-64d051736897
-    edge: true 
-    app: devopslab-dmbenedetti
-    on:
-        branch: main
+  provider: heroku
+  api_key: 0658147b-b507-426e-9861-64d051736897
+  edge: true 
+  app: devopslab-dmbenedetti
+  on:
+      branch: main
 #  - provider: gae
 #    keyfile: ../lab-devops-cloud-314122-e13635f3da2e.json
 #    project: lab-devops-cloud-314122
