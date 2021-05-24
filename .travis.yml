@@ -21,7 +21,7 @@ jobs:
       deploy:
         strategy: api
         provider: heroku
-        api_key: 0658147b-b507-426e-9861-64d051736897
+        api_key: HEROKU_API_KEY
         edge: true 
         app: devopslab-dmbenedetti
         on:
