@@ -21,7 +21,7 @@ jobs:
         sonarqube:
           organization: "dmbenedetti" # the key of the org you chose at step #3
           token:
-            secure: $SONAR_TOKEN
+            secure: 347cdec51176ec83937b4177cea247f41369e30e
       script:
         - sonar-scanner
 
