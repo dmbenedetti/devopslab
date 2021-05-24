@@ -27,7 +27,7 @@ jobs:
         on:
             branch: main
     - stage: test staging
-      script: 'curl https://devopslab-dmbenedetti.herokuapp.com/'
+      script: curl https://devopslab-dmbenedetti.herokuapp.com/
     - stage: depoy prod
       script: skip
       deploy:
@@ -37,7 +37,7 @@ jobs:
         on:
             branch: main
     - stage: test prod
-      script: 'curl https://lab-devops-cloud-314122.uc.r.appspot.com/
+      script: curl https://lab-devops-cloud-314122.uc.r.appspot.com/
 
 dist: xenial
 
