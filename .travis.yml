@@ -11,8 +11,8 @@ dist: xenial
 os: linux
 
 before_install:
-- openssl aes-256-cbc -K $encrypted_92144ba6f70c_key -iv $encrypted_92144ba6f7$
-  -in lab-devops-cloud-314122-e13635f3da2e.json.enc -out ../lab-devops-cloud-3$
+openssl aes-256-cbc -K $encrypted_92144ba6f70c_key -iv $encrypted_92144ba6f70c_iv 
+  -in lab-devops-cloud-314122-e13635f3da2e.json.enc -out ../lab-devops-cloud-314122-e13635f3da2e.json   
   -d
 
 jobs:
