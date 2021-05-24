@@ -24,7 +24,8 @@ jobs:
   include:
     - stage: sonarqube
       script:
-        - sonar-scanner
+         - npm test
+         - sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT_KEY
 
     - stage: deploy stage
       script: skip
