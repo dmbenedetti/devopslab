@@ -26,8 +26,8 @@ jobs:
         app: devopslab-dmbenedetti
         on:
             branch: main
-    - stage: test staging
-      script: 'curl https://devopslab-dmbenedetti.herokuapp.com/'
+#    - stage: test staging
+#      script: 'curl https://devopslab-dmbenedetti.herokuapp.com/'
 #    - stage: depoy prod
 #      script: skip
 #      deploy:
