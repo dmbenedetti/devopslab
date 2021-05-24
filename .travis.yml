@@ -1,47 +1,33 @@
 # Linguagem Utilizada para Desenvolver a Aplicação
 language: python
 
-
 # Versão que a aplicação suporta.
 python:
   - "3.7.9"
 
-dist: xenial
+# Instalação de Módulos que são necessários para a Aplicação.
+install:
+  - pip install flask
 
-os: linux
+# Defini o script de Teste que deve rodar toda vez que o código for alterado.
+script:
+  - python -m unittest -v test
 
-#before_install:
-#openssl aes-256-cbc -K $encrypted_92144ba6f70c_key -iv $encrypted_92144ba6f70c_iv 
-#  -in lab-devops-cloud-314122-e13635f3da2e.json.enc -out ../lab-devops-cloud-314122-e13635f3da2e.json   
-#  -d
-
+# Definir o Deploy no Heroku
 jobs:
   include:
-    - stage: Build
-
-      name: "Teste"
-      # Instalação de Módulos que são necessários para a Aplicação.
-      install:
-        - pip install flask
-      # Defini o script de Teste que deve rodar toda vez que o código for alterado.
-      script:
-        - python -m unittest -v test
-    - stage:
+    - stage: deploy stage
       script: skip
-      # Definir o Deploy no Heroku
       deploy:
-        provider: heroku
         strategy: api
-        api_key: HEROKU_API_KEY
+        provider: heroku
+        api_key: 0658147b-b507-426e-9861-64d051736897
         edge: true 
         app: devopslab-dmbenedetti
         on:
-          branch: main
-
+            branch: main
     - stage: test staging
-      script: 
-        - 'curl https://devopslab-dmbenedetti.herokuapp.com/' | É || travis+terminate 1;
- 
+      script: 'curl https://devopslab-dmbenedetti.herokuapp.com/'
     - stage: depoy prod
       script: skip
       deploy:
@@ -49,9 +35,15 @@ jobs:
         keyfile: ../lab-devops-cloud-314122-e13635f3da2e.json
         project: lab-devops-cloud-314122
         on:
-          branch: main
-
+            branch: main
     - stage: test prod
-      script:
-        - 'curl https://lab-devops-cloud-314122.uc.r.appspot.com/' | É || travis+ter$
+      script: 'curl https://lab-devops-cloud-314122.uc.r.appspot.com/
 
+dist: xenial
+
+os: linux
+
+before_install:
+- openssl aes-256-cbc -K $encrypted_92144ba6f70c_key -iv $encrypted_92144ba6f70c_iv 
+  -in lab-devops-cloud-314122-e13635f3da2e.json.enc -out ../lab-devops-cloud-314122-e13635f3da2e.json
+  -d
