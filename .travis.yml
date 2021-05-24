@@ -13,15 +13,16 @@ install:
 script:
   - python -m unittest -v test
 
+addons:
+  sonarcloud:
+    organization: "dmbenedetti" # the key of the org you chose at step #3
+    token:
+      secure: $SONAR_TOKEN
+
 # Definir o Deploy no Heroku
 jobs:
   include:
     - stage: sonarqube
-      addons: 
-        sonarcloud:
-          organization: "dmbenedetti" # the key of the org you chose at step #3
-          token:
-            secure: $SONAR_TOKEN
       script:
         - sonar-scanner
 
