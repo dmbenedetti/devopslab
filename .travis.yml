@@ -16,6 +16,15 @@ script:
 # Definir o Deploy no Heroku
 jobs:
   include:
+    - stage: sonarqube
+      addons: 
+        sonarqube:
+         organization: "dmbenedetti" # the key of the org you chose at step #3
+         token:
+           secure: $SONAR_TOKEN
+      script
+        - sonar-scanner
+
     - stage: deploy stage
       script: skip
       deploy:
