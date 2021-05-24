@@ -13,6 +13,10 @@ install:
 script:
   - python -m unittest -v test
 
+dist: xenial
+
+os: linux
+
 addons:
   sonarcloud:
     organization: "dmbenedetti" # the key of the org you chose at step #3
@@ -24,7 +28,7 @@ jobs:
   include:
     - stage: sonarqube
       script:
-        - sonar-scanner -X
+        - sonar-scanner -Dsonar.projectKey=dmbenedetti_devopslab
 
     - stage: deploy stage
       script: skip
@@ -48,10 +52,6 @@ jobs:
             branch: main
     - stage: test prod
       script: curl https://lab-devops-cloud-314122.uc.r.appspot.com/
-
-dist: xenial
-
-os: linux
 
 before_install:
 - openssl aes-256-cbc -K $encrypted_92144ba6f70c_key -iv $encrypted_92144ba6f70c_iv 
