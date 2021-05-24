@@ -30,7 +30,7 @@ jobs:
       script: 'curl https://devopslab-dmbenedetti.herokuapp.com/'
     - stage: depoy prod
       script: skip
-      deploy
+      deploy:
         provider: gae
         keyfile: ../lab-devops-cloud-314122-e13635f3da2e.json
         project: lab-devops-cloud-314122
