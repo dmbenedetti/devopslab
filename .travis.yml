@@ -27,7 +27,7 @@ jobs:
   include:
     - stage: sonarqube
       script:
-        - sonar-scanner -Dsonar.projectKey=dmbenedetti_devopslab -X
+        - sonar-scanner -Dsonar.projectKey=dmbenedetti_devopslab
 
     - stage: deploy stage
       script: skip
