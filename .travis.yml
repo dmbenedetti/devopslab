@@ -14,18 +14,15 @@ script:
   - python -m unittest -v test
 
 # Definir o Deploy no Heroku
-jobs:
-  include:
-    - stage: deploy stage
-      script: skip
-      deploy:
-        strategy: api
-        provider: heroku
-        api_key: 0658147b-b507-426e-9861-64d051736897
-        edge: true 
-        app: devopslab-dmbenedetti
-        on:
-            branch: main
+deploy:
+  strategy: api
+  provider: heroku
+  api_key: 0658147b-b507-426e-9861-64d051736897
+  edge: true 
+  app: devopslab-dmbenedetti
+  on:
+      branch: main
+
 #    - stage: test staging
 #      script: 'curl https://devopslab-dmbenedetti.herokuapp.com/'
 #    - stage: depoy prod
