@@ -19,7 +19,7 @@ jobs:
     - stage: sonarqube
       addons: 
         sonarcloud:
-          organization: "dmbenedetti" # the key of the org you chose at step #3
+          organization: "dmbenedetti_devopslab" # the key of the org you chose at step #3
           token:
             secure: $SONAR_TOKEN
       script:
