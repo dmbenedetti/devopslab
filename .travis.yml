@@ -19,9 +19,8 @@ os: linux
 
 addons:
   sonarcloud:
-    organization: "dmbenedetti" # the key of the org you chose at step #3
-    token:
-      secure: $SONAR_TOKEN
+    organization: dmbenedetti # the key of the org you chose at step #3
+    token: ${SONAR_TOKEN}
 
 # Definir o Deploy no Heroku
 jobs:
