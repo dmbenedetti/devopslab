@@ -19,9 +19,9 @@ jobs:
     - stage: sonarqube
       addons: 
         sonarqube:
-         organization: "dmbenedetti" # the key of the org you chose at step #3
-         token:
-           secure: $SONAR_TOKEN
+          organization: "dmbenedetti" # the key of the org you chose at step #3
+          token:
+            secure: $SONAR_TOKEN
       script:
         - sonar-scanner
 
