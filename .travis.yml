@@ -5,10 +5,6 @@ language: python
 python:
   - "3.7.9"
 
-# Instalação de Módulos que são necessários para a Aplicação.
-install:
-  - pip install flask flask-wtf coverage 
-
 dist: xenial
 
 os: linux
@@ -22,11 +18,16 @@ addons:
 jobs:
   include:
     - stage: sonarqube
+      # Instalação de Módulos que são necessários para a Aplicação.
+      install:
+        - pip install flask flask-wtf coverage
       script:
+        - python -m unittest -v test || travis_terminate 1;
+        - coverage run test.py || travis_terminate 1;
         - coverage report app.py || travis_terminate 1;
         - coverage xml app.py || travis_terminate 1;
-        - python -m unittest -v test || travis_terminate 1;
-        - sonar-scanner -Dsonar.projectKey=dmbenedetti_devopslab || travis_terminate 1;
+        #- sonar-scanner || travis_terminate 1;
+        #- sonar-scanner -Dsonar.projectKey=dmbenedetti_devopslab || travis_terminate 1;
 
     - stage: deploy stage
       script: skip
