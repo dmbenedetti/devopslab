@@ -9,6 +9,9 @@ dist: xenial
 
 os: linux
 
+git:
+  depth: false
+
 addons:
   sonarcloud:
     organization: dmbenedetti # the key of the org you chose at step #3
